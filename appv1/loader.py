@@ -1,8 +1,9 @@
 from flask import Blueprint,render_template
 import json
 from jinja2 import TemplateNotFound
-loader = Blueprint('loader',__name__,template_folder='templates')
+from config import rdfloader
 
+loader = Blueprint('loader',__name__,template_folder='templates')
 @loader.route('/test')
 def speak():
 	nodes_data = [
