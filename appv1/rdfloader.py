@@ -33,6 +33,8 @@ def rdfloader():
 				node_info = getIdentifier(term)
 				obj_node["id"] = str_term
 				obj_node["label"] = node_info[1]
+				if node_info[0] == Literal:
+					obj_node["shape"] = "box";
 				nodes.append(obj_node)		
 		
 		#getting predicates info
