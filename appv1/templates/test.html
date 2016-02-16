@@ -28,6 +28,12 @@
     edges: edges
   };
    var options = {
+	 configure: {
+    enabled: true,
+    filter: 'nodes,edges',
+    container: undefined,
+    showButton: true
+  },
         nodes: {
             shape: 'dot',
             size: 30,
@@ -40,7 +46,10 @@
         edges: {
             width: 2,
 	    length:200,
-            shadow:true
+            shadow:true,
+            "smooth": {
+      		"type": "curvedCW"
+    	    },
         }
     };
   var network = new vis.Network(container, data, options);
