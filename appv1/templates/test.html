@@ -28,12 +28,13 @@
     edges: edges
   };
    var options = {
-	 configure: {
+    
+ /*  configure: {
     enabled: true,
     filter: 'nodes,edges',
     container: undefined,
     showButton: true
-  },
+  },*/
         nodes: {
             shape: 'dot',
             size: 30,
@@ -47,6 +48,9 @@
             width: 2,
 	    length:200,
             shadow:true,
+	    font: {
+      align:'middle'
+    },
             "smooth": {
       		"type": "curvedCW"
     	    },
