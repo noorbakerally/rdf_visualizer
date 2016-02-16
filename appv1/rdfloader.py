@@ -3,7 +3,7 @@ from rdflib import BNode,URIRef,Literal
 g = rdflib.Graph()
 
 def getURIRefLabel(obj):
-	obj = str(obj)
+	obj = obj
 	if "#" in obj:
 		return obj[:obj.rfind("#")]
 	else:
@@ -16,7 +16,7 @@ def getIdentifier(obj):
 	if tobj == URIRef:
 		return tobj,getURIRefLabel(obj)
 	else:
-		return tobj,str(obj)
+		return tobj,obj
 
 def rdfloader():
 	nodes_exist = []
@@ -26,7 +26,7 @@ def rdfloader():
 	for subj, pred, obj in g:
 		objs = [subj,obj]
 		for term in objs:
-			str_term = str(term)
+			str_term = term
 			if str_term not in nodes_exist:
 				obj_node = {}	
 				nodes_exist.append(str_term)
@@ -40,7 +40,7 @@ def rdfloader():
 		#getting predicates info
 		pred_label = getURIRefLabel(pred)		
 		
-		edge = {"from":str(subj),"to":str(obj),"label":pred_label}
+		edge = {"from":subj,"to":obj,"label":pred_label}
 		
 		edge["arrows"] = "to"
 		edges.append(edge)
