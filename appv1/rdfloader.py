@@ -37,8 +37,11 @@ def rdfloader():
 		
 		#getting predicates info
 		pred_label = getURIRefLabel(pred)		
-
-		edges.append({"from":str(subj),"to":str(obj),"label":pred_label})
+		
+		edge = {"from":str(subj),"to":str(obj),"label":pred_label}
+		
+		edge["arrows"] = "to"
+		edges.append(edge)
 
 	return nodes,edges
 

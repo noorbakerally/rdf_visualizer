@@ -27,7 +27,22 @@
     nodes: nodes,
     edges: edges
   };
-  var options = {};
+   var options = {
+        nodes: {
+            shape: 'dot',
+            size: 30,
+            font: {
+                size: 10
+            },
+            borderWidth: 2,
+            shadow:true
+        },
+        edges: {
+            width: 2,
+	    length:200,
+            shadow:true
+        }
+    };
   var network = new vis.Network(container, data, options);
 </script>
 
