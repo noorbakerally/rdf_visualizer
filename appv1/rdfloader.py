@@ -24,7 +24,7 @@ def rdfloader():
 	edges = []
 	g.parse("/home/noor/Documents/repositories/github/rdf_visualizer/appv1/file.rdf",format="nt")
 	for subj, pred, obj in g:
-		objs = [subj,pred,obj]
+		objs = [subj,obj]
 		for term in objs:
 			str_term = str(term)
 			if str_term not in nodes_exist:
@@ -34,9 +34,11 @@ def rdfloader():
 				obj_node["id"] = str_term
 				obj_node["label"] = node_info[1]
 				nodes.append(obj_node)		
-			
-		edges.append({"from":str(subj),"to":str(pred)})
-		edges.append({"from":str(pred),"to":str(obj)})
+		
+		#getting predicates info
+		pred_label = getURIRefLabel(pred)		
+
+		edges.append({"from":str(subj),"to":str(obj),"label":pred_label})
 
 	return nodes,edges
 
